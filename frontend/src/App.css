@@ -16,9 +16,17 @@
 
 .header h1 {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   font-size: 2rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
 }
 
 .stats {
@@ -112,13 +120,19 @@
   background-color: #1f2937;
   color: white;
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
   margin-top: auto;
 }
 
 .footer p {
-  margin: 0;
+  margin: 0.5rem 0;
   opacity: 0.8;
+}
+
+.footer .note {
+  font-size: 0.875rem;
+  opacity: 0.7;
+  font-style: italic;
 }
 
 /* レスポンシブ対応 */
