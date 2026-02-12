@@ -47,6 +47,7 @@ http://localhost:3000
 webapp/
 ├── backend/
 │   ├── image_converter.py    # 画像取得・変換バッチ
+│   ├── screenshot_capture.py # スクリーンショット取得スクリプト
 │   ├── requirements.txt      # Python依存関係
 │   ├── images/               # 生成された画像（1枚）
 │   │   └── sample.webp      # 変換後の画像
@@ -63,6 +64,10 @@ webapp/
 │   ├── package.json
 │   ├── vite.config.js
 │   └── README.md
+├── sample/
+│   ├── images/              # サンプル画像
+│   │   └── sample.webp     # 参照用サンプル画像
+│   └── README.md            # サンプル画像の説明
 └── README.md                 # このファイル
 ```
 
