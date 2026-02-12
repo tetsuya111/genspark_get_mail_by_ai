@@ -51,15 +51,15 @@ function App() {
     <div className="app">
       <header className="header">
         <h1>🖼️ 画像表示負荷テスト</h1>
-        <p className="subtitle">同じ画像を{imageCount.toLocaleString()}回表示</p>
+        <p className="subtitle">同じ画像を{imageCount.toLocaleString()}枚同時に表示</p>
         <div className="stats">
           <div className="stat-item">
-            <span className="stat-label">表示回数:</span>
-            <span className="stat-value">{imageCount.toLocaleString()}回</span>
+            <span className="stat-label">表示枚数:</span>
+            <span className="stat-value">{imageCount.toLocaleString()}枚</span>
           </div>
           <div className="stat-item">
             <span className="stat-label">読み込み済み:</span>
-            <span className="stat-value">{loadedCount.toLocaleString()}回</span>
+            <span className="stat-value">{loadedCount.toLocaleString()}枚</span>
           </div>
           <div className="stat-item">
             <span className="stat-label">進捗:</span>
@@ -98,8 +98,8 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>WebP形式 | 128x128px | 単一画像を{imageCount.toLocaleString()}回表示</p>
-        <p className="note">💡 同じ画像を繰り返し使用することでブラウザキャッシュの効果を測定</p>
+        <p>WebP形式 | 128x128px | 単一画像を{imageCount.toLocaleString()}枚同時表示</p>
+        <p className="note">💡 同じ画像ファイルを繰り返し参照することでブラウザキャッシュの効果を測定</p>
       </footer>
     </div>
   )
