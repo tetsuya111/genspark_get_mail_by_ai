@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import './App.css'
+import { IMAGE_BASE64 } from './imageData'
 
 function App() {
   const [loadedCount, setLoadedCount] = useState(0)
@@ -15,10 +16,10 @@ function App() {
   }, [])
 
   const handleImageLoad = useCallback(() => {
-    // 最初の1回だけ実際の画像読み込みが発生する（ブラウザキャッシュ）
+    // Base64データの場合は即座に読み込まれる
     if (!hasImageLoadedOnce.current) {
       hasImageLoadedOnce.current = true
-      console.log('✅ 画像が読み込まれました（以降はキャッシュから表示）')
+      console.log('✅ Base64画像が読み込まれました（データURIスキーム）')
     }
 
     loadedRef.current += 1
@@ -40,18 +41,18 @@ function App() {
   }, [startTime, imageCount])
 
   const handleImageError = useCallback(() => {
-    console.error(`❌ 画像の読み込みに失敗: /images/sample.webp`)
+    console.error(`❌ Base64画像の読み込みに失敗`)
   }, [])
 
-  // 同じ画像パスを3000回使用（配列を生成）
-  const imagePath = '/images/sample.webp'
+  // Base64データを使用（配列を生成）
+  const imagePath = IMAGE_BASE64
   const displayCount = imageCount
 
   return (
     <div className="app">
       <header className="header">
-        <h1>🖼️ 画像表示負荷テスト</h1>
-        <p className="subtitle">同じ画像を{imageCount.toLocaleString()}枚同時に表示</p>
+        <h1>🖼️ 画像表示負荷テスト (Base64版)</h1>
+        <p className="subtitle">Base64データURIで同じ画像を{imageCount.toLocaleString()}枚同時に表示</p>
         <div className="stats">
           <div className="stat-item">
             <span className="stat-label">表示枚数:</span>
@@ -98,8 +99,9 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>WebP形式 | 128x128px | 単一画像を{imageCount.toLocaleString()}枚同時表示</p>
-        <p className="note">💡 同じ画像ファイルを繰り返し参照することでブラウザキャッシュの効果を測定</p>
+        <p>WebP形式 | 128x128px | Base64データURIで{imageCount.toLocaleString()}枚同時表示</p>
+        <p className="note">💡 Base64エンコードされた画像データをHTMLに直接埋め込み（Data URIスキーム）</p>
+        <p className="note">📦 データサイズ: 約5.7KB (Base64) / 元画像: 4.2KB (WebP)</p>
       </footer>
     </div>
   )
